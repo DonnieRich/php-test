@@ -1,0 +1,24 @@
+{
+    "name": "donnie/php-test",
+    "description": "simple php test",
+    "type": "project",
+    "require": {
+        "pestphp/pest": "^2.34"
+    },
+    "autoload": {
+        "psr-4": {
+            "Donnie\\PhpTest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Donnie",
+            "email": "donniepask@gmail.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
