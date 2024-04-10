@@ -2,7 +2,8 @@
 
 namespace Donnie\PhpTest\Medium\Contracts;
 
-interface Weight extends BaseUnit
+// use Donnie\PhpTest\Medium\Contracts\Unit;
+
+interface Weight
 {
-    public function convertTo(Weight $unit): Weight;
 }

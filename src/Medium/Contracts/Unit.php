@@ -2,7 +2,7 @@
 
 namespace Donnie\PhpTest\Medium\Contracts;
 
-interface BaseUnit
+interface Unit
 {
     public function getValue(): float;
     public function setValue(float $_value);

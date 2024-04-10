@@ -2,7 +2,8 @@
 
 namespace Donnie\PhpTest\Medium\Contracts;
 
-interface Length extends BaseUnit
+// use Donnie\PhpTest\Medium\Contracts\Unit;
+
+interface Length
 {
-    public function convertTo(Length $unit): Length;
 }

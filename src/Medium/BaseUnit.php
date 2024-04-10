@@ -2,9 +2,9 @@
 
 namespace Donnie\PhpTest\Medium;
 
-use Donnie\PhpTest\Medium\Contracts\BaseUnit;
+use Donnie\PhpTest\Medium\Contracts\Unit;
 
-abstract class Unit
+abstract class BaseUnit implements Unit
 {
     private float $value;
 
