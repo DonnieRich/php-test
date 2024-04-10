@@ -1,10 +1,8 @@
 <?php
 
-namespace Donnie\PhpTest\Medium;
+namespace Donnie\PhpTest\Medium\Units;
 
-use Donnie\PhpTest\Medium\Contracts\Unit;
-
-abstract class BaseUnit implements Unit
+abstract class BaseUnit
 {
     private float $value;
 
@@ -23,7 +21,8 @@ abstract class BaseUnit implements Unit
         $this->value = $_value;
     }
 
-    abstract function getRatio(string $unit): float;
-
-    abstract function getOperation(string $unit): string;
+    public function getClassName(): string
+    {
+        return strtoupper(str_replace(__NAMESPACE__ . '\\', '', static::class));
+    }
 }

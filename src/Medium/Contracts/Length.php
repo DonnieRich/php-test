@@ -2,8 +2,14 @@
 
 namespace Donnie\PhpTest\Medium\Contracts;
 
-// use Donnie\PhpTest\Medium\Contracts\Unit;
+use Donnie\PhpTest\Medium\Units\BaseUnit;
+use Donnie\PhpTest\Medium\Helpers\Ratio;
 
-interface Length
+abstract class Length extends BaseUnit implements Unit
 {
+
+    function __construct(float $_value = 0)
+    {
+        parent::__construct($_value);
+    }
 }

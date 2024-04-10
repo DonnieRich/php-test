@@ -16,6 +16,15 @@ class WeightConverter extends Converter
         }
 
         echo "Converting {$from->getClassName()} to {$to->getClassName()}";
+
+        $ratio = $from->getRatio($to);
+
+        if ($ratio->getOperation() === "/") {
+            $to->setValue($from->getValue() / $ratio->getRatio());
+        } else {
+            $to->setValue($from->getValue() * $ratio->getRatio());
+        }
+
         return $to;
     }
 }
