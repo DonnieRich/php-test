@@ -4,7 +4,7 @@ namespace Donnie\PhpTest\Medium;
 
 use Donnie\PhpTest\Medium\Contracts\Unit;
 
-abstract class Converter
+interface Converter
 {
-    abstract public static function convertTo(Unit $from, Unit $to): Unit;
+    public function convertTo(Unit $from, Unit $to): Unit;
 }

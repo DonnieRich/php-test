@@ -14,6 +14,12 @@ use Donnie\PhpTest\Medium\WeightConverter;
 
 
 $kg = new Kg(1);
-$lb = WeightConverter::convertTo($kg, (new Lb()));
-echo $lb->getValue();
-WeightConverter::convertTo($kg, (new Mt()));
+$lb = (new WeightConverter)->convertTo($kg, (new Lb()));
+// echo $lb->getValue();
+// WeightConverter::convertTo($kg, (new Mt()));
+// $kg->setValue(100);
+// $kg->setConverter(new WeightConverter);
+// $lb = $kg->convertTo($lb);
+// echo $lb->getValue();
+$result = $kg->setValue(500)->setConverter(new WeightConverter())->convertTo((new Lb()))->getValue();
+var_dump($result);

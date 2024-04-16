@@ -14,4 +14,9 @@ class Lb extends Weight
         $ratio = "{$this->getClassName()}TO{$unit->getClassName()}";
         return $this->$ratio;
     }
+
+    public function convertTo(Unit $to): Weight
+    {
+        return $this->getConverter()->convertTo($this, $to);
+    }
 }

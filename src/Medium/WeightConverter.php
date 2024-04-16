@@ -7,9 +7,9 @@ use Donnie\PhpTest\Medium\Converter;
 use Donnie\PhpTest\Medium\Contracts\Weight;
 use Exception;
 
-class WeightConverter extends Converter
+class WeightConverter implements Converter
 {
-    public static function convertTo(Unit $from, Unit $to): Weight
+    public function convertTo(Unit $from, Unit $to): Weight
     {
         if (!$from instanceof Weight || !$to instanceof Weight) {
             throw new Exception("Units must be of Weight type");
