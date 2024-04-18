@@ -3,41 +3,20 @@
 namespace Donnie\PhpTest\Medium\Units;
 
 use Donnie\PhpTest\Medium\Contracts\Weight;
-use Donnie\PhpTest\Medium\Unit;
+use Donnie\PhpTest\Medium\BaseUnit;
+use Donnie\PhpTest\Medium\Contracts\Unit;
+use Donnie\PhpTest\Medium\Helpers\Ratio;
 
-class Lb extends Unit implements Weight
+class Lb extends Weight
 {
-    private float $ratioKg = 0.45359237;
-    private string $operationKg = "*";
-
-    public function getClassName(): string
+    public function getRatio(Unit $unit): Ratio
     {
-        return "Lb";
+        $ratio = "{$this->getClassName()}TO{$unit->getClassName()}";
+        return $this->$ratio;
     }
 
-    public function convertTo(Weight $unit): Weight
+    public function convertTo(Unit $to): Weight
     {
-        $ratio = $this->getRatio($unit->getClassName());
-        $operation = $this->getOperation($unit->getClassName());
-
-        if ($operation === "/") {
-            $unit->setValue($this->getValue() / $ratio);
-        } else {
-            $unit->setValue($this->getValue() * $ratio);
-        }
-
-        return $unit;
-    }
-
-    public function getRatio(string $unit): float
-    {
-        $ratio = "ratio$unit";
-        return $this->{$ratio};
-    }
-
-    public function getOperation(string $unit): string
-    {
-        $operation = "operation$unit";
-        return $this->{$operation};
+        return $this->getConverter()->convertTo($this, $to);
     }
 }

@@ -3,42 +3,14 @@
 namespace Donnie\PhpTest\Medium\Units;
 
 use Donnie\PhpTest\Medium\Contracts\Length;
-use Donnie\PhpTest\Medium\Unit;
+use Donnie\PhpTest\Medium\Contracts\Unit;
+use Donnie\PhpTest\Medium\Helpers\Ratio;
 
-class Mt extends Unit implements Length
+class Mt extends Length
 {
-    // TODO: fix ratio and operation
-    private float $ratioMl = 0.45359237;
-    private string $operationMl = "/";
-
-    public function convertTo(Length $unit): Length
+    public function getRatio(Unit $unit): Ratio
     {
-        $ratio = $this->getRatio($unit->getClassName());
-        $operation = $this->getOperation($unit->getClassName());
-
-        if ($operation === "/") {
-            $unit->setValue($this->getValue() / $ratio);
-        } else {
-            $unit->setValue($this->getValue() * $ratio);
-        }
-
-        return $unit;
-    }
-
-    public function getClassName(): string
-    {
-        return "Mt";
-    }
-
-    public function getRatio(string $unit): float
-    {
-        $ratio = "ratio$unit";
-        return $this->{$ratio};
-    }
-
-    public function getOperation(string $unit): string
-    {
-        $operation = "operation$unit";
-        return $this->{$operation};
+        $ratio = "{$this->getClassName()}TO{$unit->getClassName()}";
+        return $this->$ratio;
     }
 }
